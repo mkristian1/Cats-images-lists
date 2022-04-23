@@ -1,0 +1,21 @@
+.transparent {
+    background: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.more {
+    background-color: var(--mk-main);
+    padding: 12px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    font-size: 32px;
+    color: var(--mk-white);
+    width: 100%;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}

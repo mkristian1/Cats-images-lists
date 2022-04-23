@@ -1,0 +1,21 @@
+.menu {
+    list-style-type: none;
+    padding-left: 0;
+    &__item {
+        margin-bottom: 8px;
+    }
+}
+
+.sidebar {
+    background-color: var(--mk-main-sec);
+    padding: 50px;
+}
+
+.btn {
+    color: var(--mk-white);
+    font-size: 18px;
+    transition: .5s;
+    &__active {
+        border-bottom: solid var(--mk-boder-color) 1px;
+    }
+}

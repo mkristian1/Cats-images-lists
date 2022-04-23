@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+
+:root {
+    --mk-main: #453776;
+    --mk-main-sec: #9B278F;
+    --mk-white: #fff;
+    --text-color: #4d5b67;
+    --mk-boder-color: #ebebeb;
+}
+
+body {
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    font-family: Source Sans Pro, Arial;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--text-color);
+}

@@ -1,0 +1,16 @@
+.wrap {
+    padding: 50px 50px 50px;
+    &__images {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+    }
+}
+
+.image {
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
