@@ -1,10 +1,9 @@
 import cn from "classnames";
 import { useEffect } from "react";
-import { defaultLimit } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../hooks/toolkit";
-import { fetchCategories, setCategoryId, setLimit } from "../../toolkit/slices/cats";
+import { clearDataImages, fetchCategories, setCategoryId } from "../../toolkit/slices/cats";
 import Button from "../button";
-import styles from "./styles/index.module.scss"
+import styles from "./styles/index.module.scss";
 
 const Sidebar = () => {
     const dispatch = useAppDispatch()
@@ -17,7 +16,9 @@ const Sidebar = () => {
     const handleChangeCategory = (id: number) => {
         return () => {
             dispatch(setCategoryId(id));
-            dispatch(setLimit(defaultLimit));
+            if (categoryId !== id) {
+                dispatch(clearDataImages())
+            }
         }
     }
 

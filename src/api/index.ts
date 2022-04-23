@@ -10,7 +10,7 @@ class Api {
         return data;
     }
     getImages = async (params?: any) => {
-        const { data } = await axios.get(`${this.url}/images/search`, { params: params });
+        const { data } = await axios.get(`${this.url}/images/search`, { params: { limit: defaultLimit, ...params } });
         return data;
     }
 }

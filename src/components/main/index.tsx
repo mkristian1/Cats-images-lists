@@ -1,24 +1,24 @@
 import { useEffect } from "react"
-import { defaultLimit } from "../../api"
 import { useAppDispatch, useAppSelector } from "../../hooks/toolkit"
-import { fetchImages, setLimit } from "../../toolkit/slices/cats"
+import { fetchImages, setPage } from "../../toolkit/slices/cats"
 import Button from "../button"
 import styles from "./styles/index.module.scss"
 
 const Main = () => {
     const dispatch = useAppDispatch()
-    const { images, categoryId, limit } = useAppSelector(state => state.cats)
+    const { images, categoryId, page } = useAppSelector(state => state.cats)
+    console.log(images);
 
     useEffect(() => {
         if (categoryId) {
-            dispatch(fetchImages({ page: 1, limit, category_ids: categoryId }))
+            dispatch(fetchImages({ page, category_ids: categoryId }))
         } else {
-            dispatch(fetchImages({ page: 1, limit }))
+            dispatch(fetchImages({ page }))
         }
-    }, [categoryId, limit])
+    }, [categoryId, page])
 
     const handleShowMore = () => {
-        dispatch(setLimit(limit + defaultLimit))
+        dispatch(setPage(page + 1))
     }
 
     return (

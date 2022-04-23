@@ -21,7 +21,7 @@ const catsSlice = createSlice({
     name: 'cats',
     initialState: {
         categoryId: null as number | null,
-        limit: 10 as number,
+        page: 1 as number,
         categories: [] as ICategories[],
         images: [] as IImages[],
     },
@@ -29,8 +29,12 @@ const catsSlice = createSlice({
         setCategoryId: (state, action: PayloadAction<number>) => {
             state.categoryId = action.payload
         },
-        setLimit: (state, action: PayloadAction<number>) => {
-            state.limit = action.payload
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload
+        },
+        clearDataImages: (state) => {
+            state.images = []
+            state.page = 1
         }
     },
     extraReducers: (builder) => {
@@ -39,12 +43,12 @@ const catsSlice = createSlice({
                 state.categories = action.payload
             })
             .addCase(fetchImages.fulfilled, (state, action) => {
-                state.images = action.payload
+                return { ...state, images: [...state.images, ...action.payload] }
             })
     }
 
 })
 
-export const { setCategoryId, setLimit } = catsSlice.actions
+export const { setCategoryId, setPage, clearDataImages } = catsSlice.actions
 
 export default catsSlice.reducer;
