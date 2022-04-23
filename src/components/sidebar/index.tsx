@@ -1,11 +1,11 @@
 import cn from "classnames";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/toolkit";
 import { clearDataImages, fetchCategories, setCategoryId } from "../../toolkit/slices/cats";
 import Button from "../button";
 import styles from "./styles/index.module.scss";
 
-const Sidebar = () => {
+const Sidebar:FC = () => {
     const dispatch = useAppDispatch()
     const { categories, categoryId } = useAppSelector(state => state.cats)
 

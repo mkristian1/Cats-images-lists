@@ -1,13 +1,12 @@
-import { useEffect } from "react"
+import { FC, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../hooks/toolkit"
 import { fetchImages, setPage } from "../../toolkit/slices/cats"
 import Button from "../button"
 import styles from "./styles/index.module.scss"
 
-const Main = () => {
+const Main:FC = () => {
     const dispatch = useAppDispatch()
     const { images, categoryId, page } = useAppSelector(state => state.cats)
-    console.log(images);
 
     useEffect(() => {
         if (categoryId) {
