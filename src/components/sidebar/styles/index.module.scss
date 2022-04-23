@@ -1,6 +1,7 @@
 .menu {
     list-style-type: none;
     padding-left: 0;
+    position: fixed;
     &__item {
         margin-bottom: 8px;
     }
@@ -9,6 +10,7 @@
 .sidebar {
     background-color: var(--mk-main-sec);
     padding: 50px;
+    min-width: 115px;
 }
 
 .btn {
