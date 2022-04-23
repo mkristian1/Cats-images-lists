@@ -4,16 +4,13 @@ import { fetchImages, setPage } from "../../toolkit/slices/cats"
 import Button from "../button"
 import styles from "./styles/index.module.scss"
 
-const Main:FC = () => {
+const Main: FC = () => {
     const dispatch = useAppDispatch()
     const { images, categoryId, page } = useAppSelector(state => state.cats)
 
     useEffect(() => {
-        if (categoryId) {
-            dispatch(fetchImages({ page, category_ids: categoryId }))
-        } else {
-            dispatch(fetchImages({ page }))
-        }
+        dispatch(fetchImages(
+            { page, ...(categoryId && { category_ids: categoryId }) }))
     }, [categoryId, page])
 
     const handleShowMore = () => {
